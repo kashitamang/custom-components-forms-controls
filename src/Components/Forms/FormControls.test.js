@@ -3,6 +3,7 @@ import {
   InputControl,
   TextAreaControl,
   SelectControl,
+  CheckboxControl,
 } from './FormControls.js';
 
 test('Input Control', async () => {
@@ -57,4 +58,19 @@ test('Select Control', async () => {
   expect(selectControl.name).toBe('role');
   expect(selectControl.required).toBe(true);
   expect(selectControl.options.length).toBe(6);
+});
+
+test('Checkbox Control', async () => {
+  render(
+    <CheckboxControl
+      legend="Have you worked with us before?"
+      label="Yes"
+      name="yes"
+      required
+    />
+  );
+  const legend = screen.getByText('Have you worked with us before?');
+  expect(legend).not.toBeNull();
+  const checkboxControl = screen.getByLabelText('Yes');
+  expect(checkboxControl.required).toBe(true);
 });
