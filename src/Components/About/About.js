@@ -1,4 +1,5 @@
 import styles from './About.css';
+import { InputControl } from '../Forms/FormControls';
 
 export default function About() {
   return (
@@ -11,17 +12,18 @@ export default function About() {
       <form>
         <h3>Interested in working together?</h3>
 
-        <label>
-          name
-          <input type="text" placeholder="name" />
-        </label>
+        <InputControl
+          label="Name"
+          name="name"
+          placeholder="your name"
+        />
         <legend>have you worked with us before?</legend>
         <label>
-          <input type="checkbox"/>
+          <input type="checkbox" />
           yes
         </label>
         <label>
-          <input type="checkbox"/>
+          <input type="checkbox" />
           no
         </label>
 
