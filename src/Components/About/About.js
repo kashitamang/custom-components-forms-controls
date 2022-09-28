@@ -1,5 +1,5 @@
 import styles from './About.css';
-import { InputControl } from '../Forms/FormControls';
+import { InputControl, TextAreaControl } from '../Forms/FormControls';
 
 export default function About() {
   return (
@@ -41,10 +41,12 @@ export default function About() {
           </select>
         </label>
 
-        <label>
-          what are you thinking?
-          <textarea></textarea>
-        </label>
+        <TextAreaControl
+          label="Here is your time to shine, tell us your pitch"
+          name="pitch"
+          required
+          placeholder="Shoot for the stars..."
+        />
         <button>submit</button>
       </form>
     </div>
