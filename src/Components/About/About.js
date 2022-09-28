@@ -1,5 +1,9 @@
 import styles from './About.css';
-import { InputControl, TextAreaControl } from '../Forms/FormControls';
+import {
+  InputControl,
+  SelectControl,
+  TextAreaControl,
+} from '../Forms/FormControls';
 
 export default function About() {
   return (
@@ -27,21 +31,18 @@ export default function About() {
           no
         </label>
         <SelectControl
-          label=""
-        />
-        <label>
-          what do you do?
-          <select>
-            <option disabled selected value="">
-              select an option...
-            </option>
-            <option>Software Engineering</option>
-            <option>UX/UI</option>
-            <option>Small Business Owner</option>
-            <option>Just Curious</option>
-            <option>Student</option>
-          </select>
-        </label>
+          label="What is your role?"
+          name="role"
+          required
+        > <option disabled selected value="">
+            select an option...
+          </option>
+          <option>Software Engineering</option>
+          <option>UX/UI</option>
+          <option>Small Business Owner</option>
+          <option>Just Curious</option>
+          <option>Student</option>
+        </SelectControl>
 
         <TextAreaControl
           label="Here is your time to shine, tell us your pitch"
