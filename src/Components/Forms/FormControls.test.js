@@ -1,5 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import { InputControl, TextAreaControl } from './FormControls.js';
+import {
+  InputControl,
+  TextAreaControl,
+  SelectControl,
+} from './FormControls.js';
 
 test('Input Control', async () => {
   render(
@@ -27,9 +31,30 @@ test('Input Control', async () => {
     />
   );
 
-  const inputControl = screen
-    .getByLabelText('Here is your time to shine, tell us your pitch');
+  const inputControl = screen.getByLabelText(
+    'Here is your time to shine, tell us your pitch'
+  );
   expect(inputControl.name).toBe('pitch');
   expect(inputControl.placeholder).toBe('Shoot for the stars...');
   expect(inputControl.required).toBe(true);
+});
+
+test('Select Control', async () => {
+  render(
+    <SelectControl label="What is your role?" name="role" required>
+      <option disabled selected value="">
+        select an option...
+      </option>
+      <option>Software Engineering</option>
+      <option>UX/UI</option>
+      <option>Small Business Owner</option>
+      <option>Just Curious</option>
+      <option>Student</option>
+    </SelectControl>
+  );
+
+  const selectControl = screen.getByLabelText('What is your role?');
+  expect(selectControl.name).toBe('role');
+  expect(selectControl.required).toBe(true);
+  expect(selectControl.options.length).toBe(6);
 });

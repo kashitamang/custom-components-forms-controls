@@ -26,7 +26,9 @@ export default function About() {
           <input type="checkbox" />
           no
         </label>
-
+        <SelectControl
+          label=""
+        />
         <label>
           what do you do?
           <select>
