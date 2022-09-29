@@ -36,7 +36,7 @@ export default function About() {
         <RadioButtonControl
           label="name"
           legend="Select your favorite language"
-          
+
           required
         />
 
@@ -67,7 +67,7 @@ export default function About() {
           required
           placeholder="Shoot for the stars..."
         />
-        <FormButton text="submit" />
+        <FormButton>Submit</FormButton>
       </form>
     </div>
   );

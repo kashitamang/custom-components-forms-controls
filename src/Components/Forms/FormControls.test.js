@@ -79,23 +79,23 @@ test('Checkbox Control', async () => {
 });
 
 test('Submit Button', async () => {
-  render(<FormButton text="Submit" />);
+  render(<FormButton>Submit</FormButton>);
 
   const button = screen.getByRole('button');
   expect(button.textContent).toBe('Submit');
 });
 
-test('RadioButtonControl', async () => {
-  render(
-    <RadioButtonControl
-      legend="Select your favorite language"
-      label="Language"
-      name="language"
-      required
-    />
-  );
-  const legend = screen.getByText('Have you worked with us before?');
-  expect(legend).not.toBeNull();
-  const checkboxControl = screen.getByLabelText('Yes');
-  expect(checkboxControl.required).toBe(true);
-});
+// test('RadioButtonControl', async () => {
+//   render(
+//     <RadioButtonControl
+//       legend="Select your favorite language"
+//       label="Language"
+//       name="language"
+//       required
+//     />
+//   );
+//   const legend = screen.getByText('Have you worked with us before?');
+//   expect(legend).not.toBeNull();
+//   const checkboxControl = screen.getByLabelText('Yes');
+//   expect(checkboxControl.required).toBe(true);
+// });

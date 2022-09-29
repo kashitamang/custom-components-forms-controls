@@ -46,8 +46,8 @@ export function CheckboxControl({ label, legend, ...rest }) {
   );
 }
 
-export function FormButton({ text }) {
-  return <button>{text}</button>;
+export function FormButton({ children }) {
+  return <button>{children}</button>;
 }
 
 export function RadioButtonControl({ label, legend, children, ...rest }) {
