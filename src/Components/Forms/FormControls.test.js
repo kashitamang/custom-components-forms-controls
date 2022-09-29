@@ -4,6 +4,7 @@ import {
   TextAreaControl,
   SelectControl,
   CheckboxControl,
+  FormButton,
 } from './FormControls.js';
 
 test('Input Control', async () => {
@@ -73,4 +74,11 @@ test('Checkbox Control', async () => {
   expect(legend).not.toBeNull();
   const checkboxControl = screen.getByLabelText('Yes');
   expect(checkboxControl.required).toBe(true);
+});
+
+test('Submit Button', async () => {
+  render(<FormButton text="Submit" />);
+
+  const button = screen.getByRole('button');
+  expect(button.textContent).toBe('Submit');
 });

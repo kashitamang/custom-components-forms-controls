@@ -2,7 +2,6 @@ import styles from './FormControls.css';
 /* eslint-disable react/prop-types */
 
 function FormControl({ label, children }) {
- 
   return (
     <label className={styles.Labels}>
       {label}
@@ -14,28 +13,41 @@ function FormControl({ label, children }) {
 export function InputControl({ label, ...rest }) {
   return (
     <FormControl label={label}>
-      <input {...rest}/>
+      <input {...rest} />
     </FormControl>
   );
 }
 
-export function TextAreaControl({ label, ...rest }){
-  return(
-    <FormControl label={label}> 
-      <textarea {...rest}/>
-    </FormControl>
-  );
-}
-
-export function SelectControl({ 
-  label, 
-  children, 
-  ...rest }){
-  return(
+export function TextAreaControl({ label, ...rest }) {
+  return (
     <FormControl label={label}>
-      <select {...rest}>
-        {children}
-      </select>
+      <textarea {...rest} />
     </FormControl>
+  );
+}
+
+export function SelectControl({ label, children, ...rest }) {
+  return (
+    <FormControl label={label}>
+      <select {...rest}>{children}</select>
+    </FormControl>
+  );
+}
+
+export function CheckboxControl({ label, legend, ...rest }) {
+  return (
+    <fieldset className={styles.CheckboxControl}>
+      <legend className={styles.LabelText}>{legend}</legend>
+      <label>
+        <input type="checkbox" {...rest} />
+        {label}
+      </label>
+    </fieldset>
+  );
+}
+
+export function FormButton({ text }){
+  return(
+    <button>{text}</button>
   );
 }

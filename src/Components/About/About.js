@@ -3,6 +3,8 @@ import {
   InputControl,
   SelectControl,
   TextAreaControl,
+  CheckboxControl,
+  FormButton,
 } from '../Forms/FormControls';
 
 export default function About() {
@@ -18,21 +20,18 @@ export default function About() {
           name="name"
           placeholder="your name"
         />
-        <legend>have you worked with us before?</legend>
-        <label>
-          <input type="checkbox" />
-          yes
-        </label>
-        <label>
-          <input type="checkbox" />
-          no
-        </label>
+        <CheckboxControl
+          legend="Have you worked with us before?"
+          label="Yes"
+        />
 
         <SelectControl
           label="What is your role?"
           name="role"
           required
-        > <option disabled selected value="">
+        >
+          {' '}
+          <option disabled selected value="">
             select an option...
           </option>
           <option>Software Engineering</option>
@@ -48,7 +47,7 @@ export default function About() {
           required
           placeholder="Shoot for the stars..."
         />
-        <button>submit</button>
+        <FormButton text="submit"/>
       </form>
     </div>
   );
