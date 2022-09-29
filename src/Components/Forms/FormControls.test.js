@@ -5,7 +5,9 @@ import {
   SelectControl,
   CheckboxControl,
   FormButton,
+  RadioButtonControl,
 } from './FormControls.js';
+import userEvent from '@testing-library/user-event';
 
 test('Input Control', async () => {
   render(
@@ -81,4 +83,19 @@ test('Submit Button', async () => {
 
   const button = screen.getByRole('button');
   expect(button.textContent).toBe('Submit');
+});
+
+test('RadioButtonControl', async () => {
+  render(
+    <RadioButtonControl
+      legend="Select your favorite language"
+      label="Language"
+      name="language"
+      required
+    />
+  );
+  const legend = screen.getByText('Have you worked with us before?');
+  expect(legend).not.toBeNull();
+  const checkboxControl = screen.getByLabelText('Yes');
+  expect(checkboxControl.required).toBe(true);
 });

@@ -46,8 +46,17 @@ export function CheckboxControl({ label, legend, ...rest }) {
   );
 }
 
-export function FormButton({ text }){
-  return(
-    <button>{text}</button>
+export function FormButton({ text }) {
+  return <button>{text}</button>;
+}
+
+export function RadioButtonControl({ label, legend, children, ...rest }) {
+  return (
+    <fieldset>
+      <legend>{legend}</legend>
+      <FormControl label={label}>
+        {children}
+      </FormControl>
+    </fieldset>
   );
 }

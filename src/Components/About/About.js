@@ -5,21 +5,41 @@ import {
   TextAreaControl,
   CheckboxControl,
   FormButton,
+  RadioButtonControl,
 } from '../Forms/FormControls';
 
 export default function About() {
+
+  function handleSubmit(event){
+    event.preventDefault();
+    //create target object
+
+    //create userResponse object
+
+    console.log('you hit submit!');
+    //return userResponse object
+  }
+
   return (
     <div className={styles.About}>
-      <h1>Contact Us</h1>
-
-      <form>
-        <h3>Interested in working together?</h3>
-
+      <div>
+        <h1>Lets Work Together!</h1>
+      </div>
+      <form onSubmit={handleSubmit}>
         <InputControl
           label="Name"
           name="name"
           placeholder="your name"
+          required
         />
+
+        <RadioButtonControl
+          label="name"
+          legend="Select your favorite language"
+          
+          required
+        />
+
         <CheckboxControl
           legend="Have you worked with us before?"
           label="Yes"
@@ -47,7 +67,7 @@ export default function About() {
           required
           placeholder="Shoot for the stars..."
         />
-        <FormButton text="submit"/>
+        <FormButton text="submit" />
       </form>
     </div>
   );
