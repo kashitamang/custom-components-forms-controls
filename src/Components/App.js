@@ -12,6 +12,7 @@ import Projects from './Projects/Projects';
 import BooBot from './Projects/BooBot';
 import Printstagram from './Projects/Printstagram/Printstagram';
 import VSssnake from './Projects/VSssnake/VSssnake';
+import Search from './Search/Search';
 
 export default function App() {
   return (
@@ -22,6 +23,8 @@ export default function App() {
           <Route index element={<HomePage/>} />
 
           <Route path="about" element={<About/>} />
+
+          <Route path="search" element={<Search/>}/>
 
           <Route path="projects" element={<Projects/>} >
             <Route index element={<BooBot/>}/>
