@@ -5,9 +5,10 @@ import {
   SelectControl,
   CheckboxControl,
   FormButton,
-  RadioButtonControl,
+  // RadioButtonControl,
+  LabelText,
 } from './FormControls.js';
-import userEvent from '@testing-library/user-event';
+// import userEvent from '@testing-library/user-event';
 
 test('Input Control', async () => {
   render(
@@ -83,6 +84,14 @@ test('Submit Button', async () => {
 
   const button = screen.getByRole('button');
   expect(button.textContent).toBe('Submit');
+});
+
+
+test('Label Text', async () => {
+  render(<LabelText text="label" />);
+  const label = screen.getByText('label');
+  expect(label).toBeTruthy();
+  expect(label.classList.contains('Required')).toBe(false);
 });
 
 // test('RadioButtonControl', async () => {

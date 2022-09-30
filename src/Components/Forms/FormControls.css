@@ -9,6 +9,11 @@
     padding: 20px;
 }
 
+.FormControl .Required::after {
+    content: '*';
+    color: red;
+}
+
 .LabelText {
     color: var(--caption-color);
     font-family: var(--label-font);
