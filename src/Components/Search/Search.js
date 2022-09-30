@@ -1,4 +1,4 @@
-// import styles from './SearchPage.css';
+import styles from './Search.css';
 import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
 import useSearchResults from '../../hooks/use-search-results';
@@ -14,7 +14,7 @@ export default function Search() {
     searchPokedex,
   } = useSearchResults();
   return (
-    <section>
+    <section className={styles.Search}>
       <SearchForm
         pokemon={pokemon}
         setPokemon={setPokemon}

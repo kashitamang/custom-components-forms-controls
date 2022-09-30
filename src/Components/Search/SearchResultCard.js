@@ -9,6 +9,7 @@ export default function SearchResultCard({
   return (
     <div className={styles.SearchResultCard} ref={infiniteScrollRef}>
       <h1>{pokemon.pokemon}</h1>
+      <img src={pokemon.url_image}/>
     </div>
   );
 }
