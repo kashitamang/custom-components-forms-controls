@@ -12,7 +12,7 @@ import Projects from './Projects/Projects';
 import BooBot from './Projects/BooBot';
 import Printstagram from './Projects/Printstagram/Printstagram';
 import VSssnake from './Projects/VSssnake/VSssnake';
-import SearchPage from './Search/SearchPage';
+import Search from './Search/Search';
 
 export default function App() {
   return (
@@ -24,7 +24,7 @@ export default function App() {
 
           <Route path="about" element={<About/>} />
 
-          <Route path="search" element={<SearchPage/>}/>
+          <Route path="search" element={<Search/>}/>
 
           <Route path="projects" element={<Projects/>} >
             <Route index element={<BooBot/>}/>

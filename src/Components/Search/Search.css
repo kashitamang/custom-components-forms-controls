@@ -1,0 +1,19 @@
+.SearchResults {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.SearchResults h1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.SearchResultCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: var(--padding);
+}

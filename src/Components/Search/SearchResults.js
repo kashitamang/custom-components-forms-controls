@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import SearchResultCard from './SearchResultCard.jsx';
+import SearchResultCard from './SearchResultCard.js';
 import styles from './Search.css';
 
 export default function SearchResults({

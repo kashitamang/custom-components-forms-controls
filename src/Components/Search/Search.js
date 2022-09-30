@@ -1,20 +1,18 @@
-import { useState } from 'react';
-import styles from './SearchPage.css';
+// import styles from './SearchPage.css';
 import SearchForm from './SearchForm';
-import SearchResults from './SearchResults.jsx';
-import { FormButton } from '../Forms/FormControls';
-import useSearchResults from '../../hooks/use-search-results.js';
+import SearchResults from './SearchResults';
+import useSearchResults from '../../hooks/use-search-results';
+import { FormButton } from '../Forms/FormControls.js';
 
-export default function SearchPage() {
+export default function Search() {
   const {
+    infiniteScrollRef,
     nextPage,
     pokemon,
     setPokemon,
-    searchParams,
     searchResults,
     searchPokedex,
   } = useSearchResults();
-
   return (
     <section>
       <SearchForm
@@ -24,6 +22,7 @@ export default function SearchPage() {
       />
       <SearchResults
         results={searchResults}
+        infiniteScrollRef={infiniteScrollRef}
       />
       <FormButton onClick={nextPage}>more</FormButton>
     </section>
