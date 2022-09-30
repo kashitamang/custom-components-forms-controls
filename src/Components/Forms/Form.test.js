@@ -64,7 +64,7 @@ function Test({ onSubmit, formData }) {
   );
 }
 
-test('Control changes update data', async () => {
+test('Form Changes update return object to the UI', async () => {
   const user = userEvent.setup();
 
   // use a jest mock function to track what onSubmit returned
