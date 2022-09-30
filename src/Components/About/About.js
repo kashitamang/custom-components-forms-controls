@@ -1,4 +1,3 @@
-import styles from './About.css';
 import {
   InputControl,
   SelectControl,
@@ -8,7 +7,11 @@ import {
   RadioButtonControl,
 } from '../Forms/FormControls';
 
+import styles from './About.css';
+import { useForm } from '../Forms/useForm.js';
+
 export default function About() {
+  const [data, handleChange] = useForm();
 
   function handleSubmit(event){
     event.preventDefault();
