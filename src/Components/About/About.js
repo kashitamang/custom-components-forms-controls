@@ -4,7 +4,7 @@ import {
   TextAreaControl,
   CheckboxControl,
   FormButton,
-  RadioButtonControl,
+  // RadioButtonControl,
 } from '../Forms/FormControls';
 
 import styles from './About.css';
@@ -13,55 +13,42 @@ import { useForm } from '../Forms/useForm.js';
 export default function About() {
   const [data, handleChange] = useForm();
 
-  function handleSubmit(event){
-    event.preventDefault();
-    //create target object
-
-    //create userResponse object
-
-    console.log('you hit submit!');
-    //return userResponse object
-  }
-
   return (
     <div className={styles.About}>
       <div>
         <h1>Lets Work Together!</h1>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form>
         <InputControl
           label="Name"
           name="name"
           placeholder="your name"
           required
-        />
-
-        <RadioButtonControl
-          label="name"
-          legend="Select your favorite language"
-
-          required
+          value={data.name || ''}
+          onChange={handleChange}
         />
 
         <CheckboxControl
           legend="Have you worked with us before?"
           label="Yes"
+          name="yes"
+          value={data.yes || false}
+          onChange={handleChange}
         />
 
         <SelectControl
           label="What is your role?"
           name="role"
           required
+          placeholder="select an option..."
+          value={data.role || ''}
+          onChange={handleChange}
         >
-          {' '}
-          <option disabled selected value="">
-            select an option...
-          </option>
-          <option>Software Engineering</option>
-          <option>UX/UI</option>
-          <option>Small Business Owner</option>
-          <option>Just Curious</option>
-          <option>Student</option>
+          <option value="1">Software Engineering</option>
+          <option value="2">UX/UI</option>
+          <option value="3">Small Business Owner</option>
+          <option value="4">Just Curious</option>
+          <option value="5">Student</option>
         </SelectControl>
 
         <TextAreaControl
@@ -69,9 +56,12 @@ export default function About() {
           name="pitch"
           required
           placeholder="Shoot for the stars..."
+          value={data.pitch || ''}
+          onChange={handleChange}
         />
         <FormButton>Submit</FormButton>
       </form>
+      <pre>{JSON.stringify(data, true, 2)}</pre>
     </div>
   );
 }

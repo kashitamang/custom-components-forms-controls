@@ -6,9 +6,8 @@ import {
   CheckboxControl,
   FormButton,
   LabelText,
-  // RadioButtonControl,
 } from './FormControls.js';
-// import userEvent from '@testing-library/user-event';
+
 
 test('Input Control', async () => {
   render(
@@ -47,9 +46,6 @@ test('Input Control', async () => {
 test('Select Control', async () => {
   render(
     <SelectControl label="What is your role?" name="role" required>
-      <option disabled selected value="">
-        select an option...
-      </option>
       <option>Software Engineering</option>
       <option>UX/UI</option>
       <option>Small Business Owner</option>
@@ -61,7 +57,7 @@ test('Select Control', async () => {
   const selectControl = screen.getByLabelText('What is your role?');
   expect(selectControl.name).toBe('role');
   expect(selectControl.required).toBe(true);
-  expect(selectControl.options.length).toBe(6);
+  expect(selectControl.options.length).toBe(5);
 });
 
 test('Checkbox Control', async () => {
@@ -122,18 +118,3 @@ test('Required Checkbox Control', async () => {
   expect(label).toBeTruthy();
   expect(label.classList.contains('Required')).toBe(true);
 });
-
-// test('RadioButtonControl', async () => {
-//   render(
-//     <RadioButtonControl
-//       legend="Select your favorite language"
-//       label="Language"
-//       name="language"
-//       required
-//     />
-//   );
-//   const legend = screen.getByText('Have you worked with us before?');
-//   expect(legend).not.toBeNull();
-//   const checkboxControl = screen.getByLabelText('Yes');
-//   expect(checkboxControl.required).toBe(true);
-// });
