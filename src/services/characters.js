@@ -3,7 +3,7 @@ export const search = async (searchObj) => {
   const query = Array.from(Object.entries(searchObj))
     .map(([k, v]) => `${k}=${encodeURIComponent(v)}`)
     .join('&');
-  const res = await fetch(process.env.POKEDEX_URL + '?' + query);
+  const res = await fetch(process.env.ZELDA_URL + '?' + query);
   if (res.status >= 400) {
     throw res;
   } else {
@@ -12,3 +12,6 @@ export const search = async (searchObj) => {
     return body;
   }
 };
+
+
+// http://localhost:3000/search?pokemon=bullby&page=1

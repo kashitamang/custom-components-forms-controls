@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { search } from '../services/pokedex';
+import { search } from '../services/characters';
 import { useInView } from 'react-intersection-observer';
 
 export default function useSearchResults() {
@@ -15,7 +15,7 @@ export default function useSearchResults() {
     usableSearchParams.page = parseInt(usableSearchParams.page) + 1;
     setSearchParams(usableSearchParams);
     const moreResults = await search(usableSearchParams);
-    setSearchResults(searchResults.concat(moreResults.results));
+    setSearchResults(searchResults.concat(moreResults.data));
   };
 
   const infiniteScrollRef = useInView({
@@ -25,26 +25,26 @@ export default function useSearchResults() {
     },
   }).ref;
 
-  const searchPokedex = async (searchObj) => {
+  const searchZeldex = async (searchObj) => {
     if (searchObj.page == null) {
       searchObj.page = 1;
     }
     setSearchParams(searchObj);
     try {
       const body = await search(searchObj);
-      setSearchResults(body.results);
+      setSearchResults(body.data);
     } catch (e) {
-      setError('Error searching pokedex ' + e.body.toString());
+      setError('Error searching Zeldex ' + e);
     }
   };
-  useEffect(() => void searchPokedex(usableSearchParams), []);
+  useEffect(() => void searchZeldex(usableSearchParams), []);
 
   return {
     nextPage,
     searchParams,
     searchResults,
     setSearchResults,
-    searchPokedex,
+    searchZeldex,
     infiniteScrollRef,
   };
 }

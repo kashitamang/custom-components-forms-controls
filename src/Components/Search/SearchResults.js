@@ -3,18 +3,18 @@ import SearchResultCard from './SearchResultCard.js';
 import styles from './Search.css';
 
 export default function SearchResults({
-  results,
+  data,
   infiniteScrollRef,
 }) {
   return (
     <ul className={styles.SearchResults}>
-      {results.map((result, i) => {
+      {data.map((result, i) => {
         const ref =
-          i == results.length - 3 ? infiniteScrollRef : undefined;
+          i == data.length - 3 ? infiniteScrollRef : undefined;
         return (
           <SearchResultCard
-            key={result._id}
-            pokemon={result}
+            key={data.id}
+            character={result}
             infiniteScrollRef={ref}
           />
         );

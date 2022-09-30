@@ -8,20 +8,20 @@ export default function Search() {
   const {
     infiniteScrollRef,
     nextPage,
-    pokemon,
-    setPokemon,
+    character,
+    setCharacter,
     searchResults,
-    searchPokedex,
+    searchZeldex,
   } = useSearchResults();
   return (
     <section className={styles.Search}>
       <SearchForm
-        pokemon={pokemon}
-        setPokemon={setPokemon}
-        onSubmit={searchPokedex}
+        character={character}
+        setCharacter={setCharacter}
+        onSubmit={searchZeldex}
       />
       <SearchResults
-        results={searchResults}
+        data={searchResults}
         infiniteScrollRef={infiniteScrollRef}
       />
       <FormButton onClick={nextPage}>more</FormButton>
