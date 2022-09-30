@@ -100,3 +100,40 @@ test('Form Changes update return object to the UI', async () => {
     yes: true,
   });
 });
+
+test('Form updates data when initialData changes', async () => {
+  const user = userEvent.setup();
+
+  const handleSubmit = jest.fn();
+
+  const { rerender } = render(
+    <Test
+      onSubmit={handleSubmit}
+      formData={{
+        name: 'username',
+        role: '2',
+        pitch: 'user pitch',
+        yes: true,
+      }}
+    />
+  );
+
+  // input text
+  const input = screen.getByLabelText('Name');
+  await user.clear(input);
+  await user.type(input, 'abc');
+
+  const changedData = {
+    name: 'updated username',
+    role: '4',
+    pitch: 'updated pitch',
+    yes: false,
+  };
+
+  rerender(<Test onSubmit={handleSubmit} formData={changedData} />);
+
+  // click button
+  await user.click(screen.getByRole('button'));
+
+  expect(handleSubmit).toHaveBeenCalledWith(changedData);
+});
