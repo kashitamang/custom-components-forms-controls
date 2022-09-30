@@ -94,6 +94,35 @@ test('Label Text', async () => {
   expect(label.classList.contains('Required')).toBe(false);
 });
 
+test('Required Label Text', async () => {
+  render(<LabelText text="label" required />);
+  const label = screen.getByText('label');
+  expect(label).toBeTruthy();
+  expect(label.classList.contains('Required')).toBe(true);
+});
+
+function testRequired(controlType, Component) {
+  test(`Required ${controlType} Control`, async () => {
+    render(<Component legend="label" label="label" required />);
+
+    const label = screen.getByText('label');
+    expect(label).toBeTruthy();
+    expect(label.classList.contains('Required')).toBe(true);
+  });
+}
+
+testRequired('Input', InputControl);
+testRequired('Select', InputControl);
+testRequired('TextArea', InputControl);
+
+test('Required Checkbox Control', async () => {
+  render(<CheckboxControl legend="label" required />);
+
+  const label = screen.getByText('label');
+  expect(label).toBeTruthy();
+  expect(label.classList.contains('Required')).toBe(true);
+});
+
 // test('RadioButtonControl', async () => {
 //   render(
 //     <RadioButtonControl
