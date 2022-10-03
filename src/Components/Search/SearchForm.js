@@ -6,8 +6,6 @@ export default function SearchForm({ onSubmit }) {
   const { 
     name, 
     setName, 
-    // searchForm, 
-    // setSearchForm 
   } = useSearchForm();
   
   const formSubmit = (e) => {
@@ -15,7 +13,7 @@ export default function SearchForm({ onSubmit }) {
     const formData = new FormData(e.target);
     const formDataObject = Object.fromEntries(formData);
     onSubmit(formDataObject);
-    console.log('formData', formDataObject);
+    // console.log('formData', formDataObject);
   };
   return (
     <form onSubmit={formSubmit}>

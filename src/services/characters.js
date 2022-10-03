@@ -3,21 +3,15 @@ export const search = async (searchObj) => {
   const query = Array.from(Object.entries(searchObj))
     .map(([k, v]) => `${k}=${encodeURIComponent(v)}`)
     .join('&');
-  console.log('whole query', process.env.ZELDA_URL + '?' + query);
+  // console.log('whole query', process.env.ZELDA_URL + '?' + query);
   
   const res = await fetch(process.env.ZELDA_URL + '?' + query);
   if (res.status >= 400) {
     throw res;
   } else {
     const body = await res.json();
-    console.log('search results', body);
+    // console.log('search results', body);
 
     return body;
   }
 };
-
-//write new searchUsingParams function here and pass to child
-
-
-// https://zelda.fanapis.com/api/characters?name=Lion
-
