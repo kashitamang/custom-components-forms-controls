@@ -6,13 +6,11 @@ export default function useSearchForm() {
   const usableSearchParams = Object.fromEntries(
     searchParams.entries()
   );
-  const [character, setCharacter] = useState(
-    usableSearchParams.character || ''
-  );
+  const [name, setName] = useState(usableSearchParams.name || '');
   return {
-    character,
+    name,
     searchForm: usableSearchParams,
-    setCharacter,
+    setName,
     setSearchForm: setSearchParams,
   };
 }

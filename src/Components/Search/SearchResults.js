@@ -13,7 +13,7 @@ export default function SearchResults({
           i == data.length - 3 ? infiniteScrollRef : undefined;
         return (
           <SearchResultCard
-            key={data.id}
+            key={result.id}
             character={result}
             infiniteScrollRef={ref}
           />

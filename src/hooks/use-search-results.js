@@ -25,6 +25,7 @@ export default function useSearchResults() {
     },
   }).ref;
 
+
   const searchZeldex = async (searchObj) => {
     if (searchObj.page == null) {
       searchObj.page = 1;
@@ -34,10 +35,21 @@ export default function useSearchResults() {
       const body = await search(searchObj);
       setSearchResults(body.data);
     } catch (e) {
-      setError('Error searching Zeldex ' + e);
+      setError('Error searching Zeldex ' + e.body);
     }
   };
   useEffect(() => void searchZeldex(usableSearchParams), []);
+
+  //new function
+  const searchZeldexWithParam = async (searchObj) => {
+    setSearchParams(searchObj);
+    try {
+      const body = await search(searchObj);
+      setSearchResults(body.data);
+    } catch (e) {
+      setError('Error searching Zeldex ' + e.body);
+    }
+  };
 
   return {
     nextPage,
@@ -45,6 +57,7 @@ export default function useSearchResults() {
     searchResults,
     setSearchResults,
     searchZeldex,
+    searchZeldexWithParam,
     infiniteScrollRef,
   };
 }

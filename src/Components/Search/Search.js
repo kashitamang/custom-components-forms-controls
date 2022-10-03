@@ -11,14 +11,16 @@ export default function Search() {
     character,
     setCharacter,
     searchResults,
-    searchZeldex,
+    //pass the new prop
+    searchZeldexWithParam,
   } = useSearchResults();
   return (
     <section className={styles.Search}>
       <SearchForm
         character={character}
         setCharacter={setCharacter}
-        onSubmit={searchZeldex}
+        //here call a different search function
+        onSubmit={searchZeldexWithParam}
       />
       <SearchResults
         data={searchResults}
